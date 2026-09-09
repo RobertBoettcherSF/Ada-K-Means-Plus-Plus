@@ -7,11 +7,11 @@ followed by standard **Lloyd / batch k-means** refinement.
 
 Vanilla k-means (Lloyd’s algorithm) can converge to clusterings that are
 *arbitrarily* bad relative to the optimal objective.  k-means++ addresses
-this by carefully choosing the initial centers with **D² sampling**, then
+this by carefully choosing the initial centers with **$D^2$ sampling**, then
 proceeding with the usual assign / centroid-update loop.
 
 **Guarantee:** with this initialization, the algorithm is
-**\(O(\log k)\)-competitive** in expectation to the optimal k-means solution
+**$O(\log k)$-competitive** in expectation to the optimal k-means solution
 (Arthur & Vassilvitskii 2007).
 
 Language: **Ada 2023** (ISO/IEC 8652:2023), compiled with GNAT (`-gnat2022`).
@@ -24,13 +24,13 @@ Part of the **RobertBoettcherSF** Ada algorithm series.  Siblings:
 
 | Concern | Approach | Notes |
 | --- | --- | --- |
-| **Metric** | Euclidean \(L_2\) | `Distance`, `Squared_Distance` |
-| **Seeding** | D² sampling | `Init_Centers_KMeansPP` |
+| **Metric** | Euclidean $L_2$ | `Distance`, `Squared_Distance` |
+| **Seeding** | $D^2$ sampling | `Init_Centers_KMeansPP` |
 | **Determinism** | LCG `Seed` / `Uniform_Draws` / farthest-point | Reproducible tests |
 | **Refinement** | Lloyd assign + means | `Run_Lloyd` / `Run_KMeans` |
 | **Pipeline** | seed + Lloyd | `Run_KMeansPP` |
-| **Stop** | \(\max_k\|\mu_k'-\mu_k\|<\mathrm{Tol}\) | or `Max_Iters` |
-| **Quality** | Within-cluster SSE / inertia | \(\sum_i\|x_i-\mu_{\ell_i}\|^2\) |
+| **Stop** | $\max_k \Vert \mu_k'-\mu_k \Vert < \mathrm{Tol}$ | or `Max_Iters` |
+| **Quality** | Within-cluster SSE / inertia | $\sum_i \Vert x_i-\mu_{\ell_i} \Vert^2$ |
 | **Empty cluster** | Keep previous center + mark | `Empty_Flags` |
 
 ## Algorithm (Arthur & Vassilvitskii 2007)
