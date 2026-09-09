@@ -73,9 +73,9 @@ Named exceptions: `Invalid_Argument`, `Capacity_Exceeded`.
 
 - `Parameters.Seed` drives an internal **LCG** (Numerical Recipes constants).
 - `Init_Centers_KMeansPP (Data, K, Draws)` accepts an explicit stream of
-  Uniform\([0,1)\) draws.
+  Uniform$[0,1)$ draws.
 - `Init_Centers_Farthest_Point` is a **deterministic greedy** helper:
-  always pick \(\arg\max_x D(x)^2\) after a fixed first index.
+  always pick $\arg\max_x D(x)^2$ after a fixed first index.
 
 ## Build & test
 
