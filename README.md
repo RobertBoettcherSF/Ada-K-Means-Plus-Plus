@@ -36,10 +36,10 @@ Part of the **RobertBoettcherSF** Ada algorithm series.  Siblings:
 ## Algorithm (Arthur & Vassilvitskii 2007)
 
 1. Choose the **first** center uniformly at random among the data points.
-2. For each remaining point \(x\), let \(D(x)\) be the distance to the nearest
+2. For each remaining point $x$, let $D(x)$ be the distance to the nearest
    already-chosen center.
-3. Choose the next center with probability proportional to \(D(x)^2\).
-4. Repeat steps 2–3 until \(k\) centers have been chosen.
+3. Choose the next center with probability proportional to $D(x)^2$.
+4. Repeat steps 2–3 until $k$ centers have been chosen.
 5. Proceed with standard **Lloyd / k-means** (assign → centroid update).
 
 Intuition: spreading the initial centers reduces the chance of the
@@ -60,7 +60,7 @@ iteration.  After seeding, this package runs the same discrete Lloyd loop as
 | Caps | `Max_Points`, `Max_Dims`, `Max_K` | Fixed educational limits |
 | Types | `Real`, `Point`, `Dataset`, `Centers`/`Sites`, `Labels`, `Parameters`, `Result`, `D2_Weights`, `Uniform_Draws` | Domain model |
 | RNG | `RNG_State`, `Seed_RNG`, `Draw_Unit`, `Draw_Index` | Simple 32-bit LCG |
-| Geometry | `Distance`, `Squared_Distance`, `Extract_Point` / `Extract_Center` | \(L_2\) helpers |
+| Geometry | `Distance`, `Squared_Distance`, `Extract_Point` / `Extract_Center` | $L_2$ helpers |
 | D² | `Nearest_Center`, `Min_Squared_Distance_To_Centers`, `Compute_D2_Weights`, `Sum_D2` | Seeding primitives |
 | Partition | `Assign_Labels`, `Compute_Centroids` | Lloyd step |
 | Quality | `Within_Cluster_SSE` / `Inertia` | SSE |
